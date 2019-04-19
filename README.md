@@ -31,7 +31,7 @@ trash()
 
 cleartrash()
 {
-    read -p "clear sure?[n]" confirm
+    read -p "clear sure?[y/n]" confirm
     [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.trash/*  && find ~/.trash/ -mindepth 1 -name '.*' | xargs rm -rf
 }
 ```  
@@ -58,7 +58,7 @@ trash()
 
 cleartrash()
 {
-    read -p "clear sure?[n]" confirm
+    read -p "clear sure?[y/n]" confirm
     [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.Trash/*  && find ~/.Trash/ -mindepth 1 -name '.*' | xargs rm -rf
 }
 ```
