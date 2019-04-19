@@ -1,4 +1,7 @@
 # Easy-Trash
+
+![](https://img.shields.io/badge/test-passing-brightgreen.svg) ![](https://img.shields.io/badge/license-MIT-brightgreen.svg)  
+
 :see_no_evil:A simple shell script is used instead of the command "rm" on Linux/Unix.
 
 If you have been dominated by the fear of "rm -rf /", then re-modifying your "rm" is a good choice.
