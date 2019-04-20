@@ -15,7 +15,7 @@ Copy the following code append to the file `/etc/profile` (all user effective) o
 ```bash
 # add trash function
 mkdir -p ~/.trash
-alias rm=trash
+alias rm='echo "This is not the command you are looking for, Please Use "trash"!!!"; false'
 alias trash-list='ls -la ~/.trash'
 alias trash-restore=undelfile
 alias trash-empty=cleartrash
@@ -24,6 +24,7 @@ undelfile()
 {
   mv -i ~/.trash/$@ ./
 }
+
 trash()
 {
   mv $@ ~/.trash/
@@ -32,7 +33,7 @@ trash()
 cleartrash()
 {
     read -p "clear sure?[y/n]" confirm
-    [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.trash/*  && find ~/.trash/ -mindepth 1 -name '.*' | xargs rm -rf
+    [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.trash/*  && find ~/.trash/ -mindepth 1 -name '.*' | xargs /bin/rm -rf
 }
 ```  
 
@@ -42,7 +43,7 @@ Copy the following code append to the file `/etc/profile` (all user effective **
 
 ```bash
 # add trash function using graphical interface .Trash
-alias rm=trash
+alias rm='echo "This is not the command you are looking for, Please Use "trash"!!!"; false'
 alias trash-list='ls -la ~/.Trash'
 alias trash-restore=undelfile
 alias trash-empty=cleartrash
@@ -51,6 +52,7 @@ undelfile()
 {
   mv -i ~/.Trash/$@ ./
 }
+
 trash()
 {
   mv $@ ~/.Trash/
@@ -59,7 +61,7 @@ trash()
 cleartrash()
 {
     read -p "clear sure?[y/n]" confirm
-    [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.Trash/*  && find ~/.Trash/ -mindepth 1 -name '.*' | xargs rm -rf
+    [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.Trash/*  && find ~/.Trash/ -mindepth 1 -name '.*' | xargs /bin/rm -rf
 }
 ```
 
