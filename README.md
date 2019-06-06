@@ -23,9 +23,9 @@ alias trash-empty=cleartrash
 trash(){
   for filename in $@
   do
-    if [ -n `find ~/.trash -maxdepth 1 -name ${filename}` ]
+    if [ -n "`find ~/.trash -maxdepth 1 -name ${filename}`" ]
     then
-    mv ${filename} ~/.trash/${filename}_`date +%Y%m%d-%H%M%S-%2N`
+    mv ${filename} ~/.trash/${filename}_`date +%Y%m%d-%H%M%S`
     else
     mv ${filename} ~/.trash/
     fi
@@ -56,7 +56,7 @@ alias trash-empty=cleartrash
 trash(){
   for filename in $@
   do
-    if [ -n `find ~/.Trash -maxdepth 1 -name ${filename}` ]
+    if [ -n "`find ~/.Trash -maxdepth 1 -name ${filename}`" ]
     then
     mv ${filename} ~/.Trash/${filename}_`date +%Y%m%d-%H%M%S`
     else
