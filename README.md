@@ -10,7 +10,7 @@ If you have been dominated by the fear of "rm -rf /", then re-modifying your "rm
 
 **On the Linux:**
 
-Copy the following code append to the file `/etc/profile` (all user effective) or `~/.bashrc` (only the current effective).
+Copy the following code append to the file `/etc/profile` (all user effective) or `~/.bashrc` 、`~/.zshrc` (only the current effective).
 
 ```bash
 # add trash function
@@ -23,7 +23,7 @@ alias trash-empty=cleartrash
 trash(){
   for filename in $@
   do
-    if [ -n `find ~/.trash/ -maxdepth 1 -name ${filename}` ]
+    if [ -n `find ~/.trash -maxdepth 1 -name ${filename}` ]
     then
     mv ${filename} ~/.trash/${filename}_`date +%Y%m%d-%H%M%S-%2N`
     else
@@ -44,7 +44,7 @@ undelfile(){
 
 **On the MacOS**
 
-Copy the following code append to the file `/etc/profile` (all user effective **but not recommend**) or `~/.bash_profile` (only the current effective).
+Copy the following code append to the file `/etc/profile` (all user effective **but not recommend**) or `~/.bash_profile` 、`~/.zshrc` (only the current effective).
 
 ```bash
 # add trash function using graphical interface .Trash
@@ -56,9 +56,9 @@ alias trash-empty=cleartrash
 trash(){
   for filename in $@
   do
-    if [ -n `find ~/.Trash/ -maxdepth 1 -name ${filename}` ]
+    if [ -n `find ~/.Trash -maxdepth 1 -name ${filename}` ]
     then
-    mv ${filename} ~/.Trash/${filename}_`date +%Y%m%d-%H%M%S-%2N`
+    mv ${filename} ~/.Trash/${filename}_`date +%Y%m%d-%H%M%S`
     else
     mv ${filename} ~/.Trash/
     fi

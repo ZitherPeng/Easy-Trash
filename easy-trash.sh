@@ -1,10 +1,3 @@
-##########################################################################
-# File Name: easy-trash.sh
-# Author: zither
-# mail: zitherdzdwr@gmail.com
-#########################################################################
-#!/bin/bash
-
 # add trash function
 mkdir -p ~/.trash
 alias rm='echo "This is not the command you are looking for, Please Use "trash"!!!"; false'
@@ -15,7 +8,7 @@ alias trash-empty=cleartrash
 trash(){
   for filename in $@
   do
-    if [ -n `find ~/.trash/ -maxdepth 1 -name ${filename}` ]
+    if [ -n `find ~/.trash -maxdepth 1 -name ${filename}` ]
     then
     mv ${filename} ~/.trash/${filename}_`date +%Y%m%d-%H%M%S-%2N`
     else
