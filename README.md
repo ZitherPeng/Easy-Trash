@@ -33,7 +33,13 @@ trash(){
 }
 
 cleartrash(){
+  if [[ $0 =~ 'zsh' ]]
+  then
+  vared -p "clear sure?[y/n]" -c confirm
+  elif [[ $0 =~ 'bash' ]]
+  then
   read -p "clear sure?[y/n]" confirm
+  fi
   [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.trash/*  && find ~/.trash/ -mindepth 1 -name '.*' | xargs /bin/rm -rf
 }
 
@@ -66,8 +72,14 @@ trash(){
 }
 
 cleartrash(){
+  if [[ $0 =~ 'zsh' ]]
+  then
+  vared -p "clear sure?[y/n]" -c confirm
+  elif [[ $0 =~ 'bash' ]]
+  then
   read -p "clear sure?[y/n]" confirm
-  [ $confirm == 'y' ] || [ $confirm == 'Y' ]  && /bin/rm -rf ~/.Trash/*  && find ~/.Trash/ -mindepth 1 -name '.*' | xargs /bin/rm -rf
+  fi
+  [ $confirm = 'y' ] || [ $confirm = 'Y' ]  && /bin/rm -rf ~/.Trash/*  && find ~/.Trash/ -mindepth 1 -name '.*' | xargs /bin/rm -rf
 }
 
 undelfile(){
